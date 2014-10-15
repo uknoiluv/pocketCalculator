@@ -1,0 +1,30 @@
+div .block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -1px;
+  border: solid 1px;
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+
+div .row2{
+  border-top: solid 2px;
+}
+
+.container {
+  height: 300px;
+  width: 200px;
+  border: solid 3px black;
+}
+
+div .twoBlock {
+  justify-content: flex-start;
+  width: 79px;
+  padding-left: 21px
+}
+
+div .row1 {
+  height: 50px;
+}
