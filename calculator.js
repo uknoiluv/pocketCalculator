@@ -52,6 +52,19 @@
       $('.row1').html(numString);
     });
 
+    $('#plusMinus').on('click', function(){
+      if(+numString !== 0){
+        numString = -numString;
+      }
+      $('.row1').html(numString);
+    });
+
+    $('#clear').on('click', function(){
+      stringToBeEval = '';
+      numString = '';
+      $('.row1').html(numString);
+    });
+
     detectNum('one');
     detectNum('two');
     detectNum('three');
