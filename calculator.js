@@ -18,7 +18,11 @@
           numString = '';
         }
         numString += $(this).html();
-        $('.row1').html(numString * 1);
+        numString = numString * 1 + '';
+        $('.row1').html(numString);
+        if($('#clear').html() === 'AC'){
+          $('#clear').html('C');
+        }
       });
     };
 
@@ -68,10 +72,16 @@
     });
 
     $('#clear').on('click', function(){
-      stringToBeEval = '';
-      numString = '0';
-      opCount = 0;
-      $('.row1').html(numString);
+      if($('#clear').html() === 'AC'){
+        stringToBeEval = '';
+        numString = '0';
+        opCount = 0;
+        $('.row1').html(numString);
+      }else{
+        numString = '0';
+        $('.row1').html(0);
+        $('#clear').html('AC');
+      }
     });
 
 
