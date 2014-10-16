@@ -7,7 +7,9 @@
   $(document).ready(function(){
     
     var stringToBeEval = '';
-    var numString = '';
+    var numString = '0';
+
+    $('.row1').html(numString);
 
     var detectNum = function(num){
       return $('#' + num).on('click', function(){
@@ -15,7 +17,7 @@
           numString = '';
         }
         numString += $(this).html();
-        $('.row1').html(numString);
+        $('.row1').html(numString * 1);
       });
     };
 
@@ -61,9 +63,23 @@
 
     $('#clear').on('click', function(){
       stringToBeEval = '';
-      numString = '';
+      numString = '0';
       $('.row1').html(numString);
     });
+
+
+    $('#dot').on('click', function(){
+      if(stringToBeEval.length && isNaN(stringToBeEval[stringToBeEval.length - 1])){
+        numString = '';
+      }
+      if(numString.indexOf('.') === -1){
+        numString *= 1;
+        numString += $(this).html();
+        console.log('numString', numString);
+        $('.row1').html(numString);
+      }
+    });
+
 
     detectNum('one');
     detectNum('two');
