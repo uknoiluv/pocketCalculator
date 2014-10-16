@@ -1,8 +1,3 @@
-div#calc {
-  margin-top: 50px;
-  margin-left: 30px;
-  font: 26px sans-serif;
-}
 
 div .block {
   display: flex;
@@ -11,11 +6,14 @@ div .block {
   margin: -1px;
   border: solid 1px;
   float: left;
-  height: 50px;
-  width: 50px;
-  /*border-radius: 20px;*/
-  font: 20px verdana;
+  height: 100px;
+  width: 100px;
+  font: 40px verdana;
   background-color: #FCFCFC;
+}
+
+div .block:hover {
+  opacity: 0.5;
 }
 
 div .row2 {
@@ -27,16 +25,17 @@ div .row2 {
 }
 
 .container {
+  margin-top: 30px;
   margin-left: 30px;
-  height: 300px;
-  width: 200px;
+  height: 600px;
+  width: 400px;
   border: solid 2px black;
 }
 
 div .twoBlock {
   justify-content: flex-start;
-  width: 79px;
-  padding-left: 21px
+  width: 162px;
+  padding-left: 38px
 }
 
 div .row1 {
@@ -44,15 +43,15 @@ div .row1 {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font: 20px verdana;
-  height: 50px;
-  width: 182px;
-  padding-right: 18px;
+  font: 40px verdana;
+  height: 100px;
+  width: 364px;
+  padding-right: 36px;
   background-color: black;
 }
 
 #division, #multiply, #minus, #plus, #equals {
   color: white;
-  background-color: #FFC671;
+  background-color: #A1C6EB;
   border-color: black;
 }

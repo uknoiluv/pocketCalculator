@@ -9,8 +9,7 @@
     var stringToBeEval = '';
     var numString = '0';
     var opCount = 0;
-
-    $('.row1').html(numString);
+    var lastOp = '';
 
     var detectNum = function(num){
       return $('#' + num).on('click', function(){
@@ -38,7 +37,8 @@
         operation = '/';
       }
       return $('#' + op).on('click', function(){
-        stringToBeEval += numString + operation;          
+        stringToBeEval += numString + operation;
+        lastOp = operation;         
         if(stringToBeEval.length && isNaN(stringToBeEval[stringToBeEval.length - 1]) && isNaN(stringToBeEval[stringToBeEval.length - 2])){
           stringToBeEval = stringToBeEval.slice(0, -2) + stringToBeEval.slice(-1);
           opCount--;
@@ -48,13 +48,30 @@
         }
         if(opCount > 1){
           $('.row1').html(eval(stringToBeEval.slice(0, -1)));
-        }  
+        }
+        if($('.selected')){
+          $('.selected').css('height', '100px');
+          $('.selected').css('width', '100px');
+          $('.selected').css('border', 'solid 1px black');
+          $('.selected').removeClass('selected');
+        }
+        $(this).css('height', '96px');
+        $(this).css('width', '96px');
+        $(this).css('border', 'solid 3px black');
+        $(this).addClass('selected');
       });
     };
 
+
+    $('.row1').html(numString);
+
     $('#equals').on('click', function(){
       numString === '' ? stringToBeEval += $('.row1').html() : stringToBeEval += numString;
+      console.log('stringToBeEval', stringToBeEval);
       $('.row1').html(eval(stringToBeEval));
+      console.log('lastOp', lastOp);
+      stringToBeEval = eval(stringToBeEval) + lastOp;
+      opCount = 0;
     });
 
     $('#percent').on('click', function(){
