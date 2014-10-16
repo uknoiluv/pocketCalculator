@@ -29,8 +29,6 @@
         operation = '*';
       }else if(op === 'division'){
         operation = '/';
-      }else if(op === 'modulo'){
-        operation = '%';
       }
       console.log('op', op);
       return $('#' + op).on('click', function(){
@@ -45,6 +43,13 @@
     $('#equals').on('click', function(){
       stringToBeEval += numString;
       $('.row1').html(eval(stringToBeEval));
+    });
+
+    $('#percent').on('click', function(){
+      if(+numString > 0){
+        numString = numString / 100 + '';
+      }
+      $('.row1').html(numString);
     });
 
     detectNum('one');
@@ -62,7 +67,6 @@
     detectOperation('minus');
     detectOperation('multiply');
     detectOperation('division');
-    detectOperation('modulo');
 
 
   });
