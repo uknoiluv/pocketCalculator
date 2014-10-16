@@ -8,12 +8,13 @@
     
     var stringToBeEval = '';
     var numString = '0';
+    var opCount = 0;
 
     $('.row1').html(numString);
 
     var detectNum = function(num){
       return $('#' + num).on('click', function(){
-        if(stringToBeEval.length && isNaN(stringToBeEval[stringToBeEval.length - 1])){
+        if(stringToBeEval.length && !isNaN(stringToBeEval[stringToBeEval.length - 1])){
           numString = '';
         }
         numString += $(this).html();
@@ -32,18 +33,23 @@
       }else if(op === 'division'){
         operation = '/';
       }
-      console.log('op', op);
       return $('#' + op).on('click', function(){
-        if(stringToBeEval.length && isNaN(stringToBeEval[stringToBeEval.length - 1])){
-          stringToBeEval = stringToBeEval.slice(0, -1);
+        stringToBeEval += numString + operation;          
+        if(stringToBeEval.length && isNaN(stringToBeEval[stringToBeEval.length - 1]) && isNaN(stringToBeEval[stringToBeEval.length - 2])){
+          stringToBeEval = stringToBeEval.slice(0, -2) + stringToBeEval.slice(-1);
+          opCount--;
+        }else{
+          opCount++;
+          numString = '';
         }
-        stringToBeEval += numString + operation;
-        console.log('stringToBeEval', stringToBeEval);
+        if(opCount > 1){
+          $('.row1').html(eval(stringToBeEval.slice(0, -1)));
+        }  
       });
     };
 
     $('#equals').on('click', function(){
-      stringToBeEval += numString;
+      numString === '' ? stringToBeEval += $('.row1').html() : stringToBeEval += numString;
       $('.row1').html(eval(stringToBeEval));
     });
 
@@ -64,6 +70,7 @@
     $('#clear').on('click', function(){
       stringToBeEval = '';
       numString = '0';
+      opCount = 0;
       $('.row1').html(numString);
     });
 
@@ -75,7 +82,6 @@
       if(numString.indexOf('.') === -1){
         numString *= 1;
         numString += $(this).html();
-        console.log('numString', numString);
         $('.row1').html(numString);
       }
     });
