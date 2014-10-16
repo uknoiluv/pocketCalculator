@@ -26,5 +26,10 @@ div .twoBlock {
 }
 
 div .row1 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   height: 50px;
+  width: 179px;
+  padding-right: 21px
 }

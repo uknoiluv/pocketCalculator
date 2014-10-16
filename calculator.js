@@ -81,7 +81,6 @@
     detectOperation('multiply');
     detectOperation('division');
 
-
   });
 
 }());
