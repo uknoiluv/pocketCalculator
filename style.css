@@ -1,4 +1,10 @@
-div .block{
+div#calc {
+  margin-top: 50px;
+  margin-left: 30px;
+  font: 26px sans-serif;
+}
+
+div .block {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,16 +13,24 @@ div .block{
   float: left;
   height: 50px;
   width: 50px;
+  /*border-radius: 20px;*/
+  font: 20px verdana;
+  background-color: #FCFCFC;
 }
 
-div .row2{
+div .row2 {
   border-top: solid 2px;
 }
 
+.row2 .block {
+  background-color: #F0F0F0;
+}
+
 .container {
+  margin-left: 30px;
   height: 300px;
   width: 200px;
-  border: solid 3px black;
+  border: solid 2px black;
 }
 
 div .twoBlock {
@@ -26,10 +40,19 @@ div .twoBlock {
 }
 
 div .row1 {
+  color: white;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  font: 20px verdana;
   height: 50px;
-  width: 179px;
-  padding-right: 21px
+  width: 182px;
+  padding-right: 18px;
+  background-color: black;
+}
+
+#division, #multiply, #minus, #plus, #equals {
+  color: white;
+  background-color: #FFC671;
+  border-color: black;
 }

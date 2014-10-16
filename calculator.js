@@ -86,22 +86,13 @@
       }
     });
 
-
-    detectNum('one');
-    detectNum('two');
-    detectNum('three');
-    detectNum('four');
-    detectNum('five');
-    detectNum('six');
-    detectNum('seven');
-    detectNum('eight');
-    detectNum('nine');
-    detectNum('zero');
-
-    detectOperation('plus');
-    detectOperation('minus');
-    detectOperation('multiply');
-    detectOperation('division');
+    var arrFunc = function(func, arr){
+      for(var i = 0; i < arr.length; i++){
+        func(arr[i]);
+      }
+    };
+    arrFunc(detectNum, ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'zero']);
+    arrFunc(detectOperation, ['plus', 'minus', 'multiply', 'division'])
 
   });
 
