@@ -23,20 +23,22 @@
     var commaSeperator = function(str){
       var strArr = (str + '').split('');
       var strArrLen = strArr.length;
-      if(strArrLen > 9){
+      if(strArrLen > 9 && strArr.indexOf('.') === -1){
         if((str[0] + '.' + str.slice(1,7)) * 1 === 9.999999){
           return '1e+' + strArrLen;
         }else{
           var pow6 = Math.pow(10, 6);
           return Math.round((str[0] + '.' + str.slice(1,8)) * pow6)/pow6  + 'e+' + (strArrLen - 1);
         }
-      }else{
+      }else if(strArr.indexOf('.') === -1){
         var k = strArrLen - 3;
         while(k > 0){
           strArr.splice(k, 0, ',');
           k -= 3;
         }
         return strArr.join('');
+      }else{
+        return strArrLen > 9 ? str.slice(0, 10) : str;
       }
     };
 
@@ -127,11 +129,7 @@
       }
     });
 
-
     $('#dot').on('click', function(){
-      if(stringToBeEval.length && isNaN(stringToBeEval[stringToBeEval.length - 1])){
-        numString = '';
-      }
       if(numString.indexOf('.') === -1){
         numString *= 1;
         numString += $(this).html();
