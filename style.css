@@ -55,3 +55,8 @@ div .row1 {
   background-color: #A1C6EB;
   border-color: black;
 }
+
+div #zero, #dot, #equals {
+  height: 98px;
+  border-bottom: solid 2px black;
+}
