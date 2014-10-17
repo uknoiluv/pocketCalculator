@@ -65,19 +65,10 @@
     };
 
     var detectOperation = function(op){
-      var operation;
-      if(op === 'plus'){
-        operation = '+';
-      }else if(op === 'minus'){
-        operation = '-';
-      }else if(op === 'multiply'){
-        operation = '*';
-      }else if(op === 'division'){
-        operation = '/';
-      }
+      var opObj = {plus: '+', minus: '-', multiply: '*', division: '/'};
       return $('#' + op).on('click', function(){
-        stringToBeEval += numString + operation;
-        lastOp = operation;         
+        stringToBeEval += numString + opObj[op];
+        lastOp = opObj[op];         
         if(stringToBeEval.length && isNaN(stringToBeEval[stringToBeEval.length - 1]) && isNaN(stringToBeEval[stringToBeEval.length - 2])){
           stringToBeEval = stringToBeEval.slice(0, -2) + stringToBeEval.slice(-1);
           opCount--;
