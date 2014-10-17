@@ -37,6 +37,13 @@
           k -= 3;
         }
         return strArr.join('');
+      }else if(str * Math.pow(10, 8) !== 0 && str * Math.pow(10, 8) < 1){
+        var k = 2;
+        while(str[k] !== 0){
+          k++;
+        }
+        var num = str.slice(k);
+        return num.slice(0, 1) + (num.slice(1, 7) * 1 === 0 ? '' : '.' + num.slice(1, 7)) + 'e-' + (k - 1);
       }else{
         return strArrLen > 9 ? str.slice(0, 10) : str;
       }
@@ -48,7 +55,7 @@
           numString = '';
         }
         numString.length < 9 ? numString += $(this).html() : null ;
-        numString = numString * 1 + '';
+        numString = (numString.indexOf('.') === -1 ? numString * 1 + '' : numString);
         $('.row1').html(commaSeperator(numString));
         if($('#clear').html() === 'AC'){
           $('#clear').html('C');
@@ -93,9 +100,7 @@
 
     $('#equals').on('click', function(){
       numString === '' ? stringToBeEval += $('.row1').html() : stringToBeEval += numString;
-      console.log('stringToBeEval', stringToBeEval);
       $('.row1').html(commaSeperator(eval(stringToBeEval) + ''));
-      console.log('lastOp', lastOp);
       stringToBeEval = eval(stringToBeEval) + lastOp;
       opCount = 0;
       clearSelected();
