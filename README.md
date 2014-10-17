@@ -1,2 +1,2 @@
 
-Pocket Calculator made by Adrian Kim using HTML, CSS and Javascript
+Pocket Calculator made by Adrian Kim using HTML, CSS, Javascript and jQuery.
