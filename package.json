@@ -1,0 +1,11 @@
+{
+  "name": "pocketCalc",
+  "version": "0.0.1",
+  "author": "Adrian Kim",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "sinon": "*"
+  }
+}
